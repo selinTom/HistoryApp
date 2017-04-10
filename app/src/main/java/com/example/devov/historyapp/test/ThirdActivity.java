@@ -43,13 +43,15 @@ public class ThirdActivity extends Activity {
         public void onClick(View v) {
             Toast.makeText(ThirdActivity.this,"======>1",Toast.LENGTH_LONG).show();
         }
-    }; @InjectClickEvent(R.id.tv2)
+    };
+    @InjectClickEvent(R.id.tv2)
     public View.OnClickListener listener2=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Toast.makeText(ThirdActivity.this,"======>2",Toast.LENGTH_LONG).show();
         }
-    }; @InjectClickEvent(R.id.tv3)
+    };
+    @InjectClickEvent(R.id.tv3)
     public View.OnClickListener listener3=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
