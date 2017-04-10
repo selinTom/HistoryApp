@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_slash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.devov.historyapp.SplashActivity">
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/holo_blue_light"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="杂货铺"
+            android:textSize="25dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/grid"
+        android:layout_below="@id/ll"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/llayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/coordinatorLayout">
+    <TextView
+        android:id="@+id/js_btn"
+        android:layout_above="@+id/photo_wall_btn"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="JS TEST"
+        android:textSize="30dp"
+        android:gravity="center"/>
+    <TextView
+        android:id="@id/photo_wall_btn"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="PHOTO WALL"
+        android:textSize="30dp"
+        android:gravity="center"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/flexbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llayout"
+        android:text="FlexboxLayout "
+        android:gravity="center"
+        android:textSize="30sp"
+        />
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+    <Button
+        android:id="@+id/zxing_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/text_select"
+        android:textSize="15sp"
+        android:text="Hello World"/>
+    </android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

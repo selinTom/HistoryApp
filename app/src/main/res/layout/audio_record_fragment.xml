@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/animation_iv"
+        android:background="@drawable/frame_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll"
+        />
+    <com.example.devov.historyapp.view.RippleView
+        android:id="@+id/ripple_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ll"
+        android:layout_alignBottom="@id/ll"
+        />
+     <LinearLayout
+         android:id="@id/ll"
+         android:orientation="vertical"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true">
+         <ImageButton
+             android:id="@+id/iv_btn"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:background="@drawable/audio_record" />
+
+         <ProgressBar
+             android:id="@+id/pb"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:visibility="gone"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:text="按住录音"/>
+     </LinearLayout>
+
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/btn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@id/rv"
+    android:layout_alignParentRight="true"
+    app:backgroundTint="#ff87ffeb"
+    app:rippleColor="#33728dff"
+    android:src="@drawable/arrow_down"
+    />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/rv"
+        android:layout_alignParentRight="true"
+        app:backgroundTint="#ffff4040"
+        app:rippleColor="#33728dff"
+        android:visibility="gone"
+        android:src="@drawable/refresh"
+        />
+
+ </RelativeLayout>

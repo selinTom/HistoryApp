@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/news_item_bg"
+    >
+    <LinearLayout
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/news_item_bg"
+        android:gravity="center"
+
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_light"
+            android:src="@drawable/trashbin"
+            />
+    </LinearLayout>
+
+<RelativeLayout
+    android:id="@+id/news"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/news_item"
+    >
+    <TextView
+        android:id="@+id/red_point"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/round"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="99+"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_toRightOf="@id/red_point"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:text="日期"
+        />
+    <TextView
+        android:id="@+id/tv_context"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/iv_context"
+        android:layout_below="@id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="15dp"
+        android:text="内容"
+
+        />
+    <ImageView
+        android:id="@id/iv_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+</RelativeLayout>
+</com.daimajia.swipe.SwipeLayout>

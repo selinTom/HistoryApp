@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<com.example.devov.historyapp.view.FlashTextView
+    android:id="@+id/tv0"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:textSize="25sp"
+    android:text="HAHAHAHA"
+    />
+    <com.example.devov.historyapp.view.FlashTextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="25sp"
+        android:text="HAHAHAHA"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"
+
+        />
+    <com.example.devov.historyapp.view.FlashTextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff000000"
+        android:textSize="25sp"
+        android:text="HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"
+
+        />
+    <com.example.devov.historyapp.view.FlashTextView
+        android:id="@+id/tv3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#995788A6"
+        android:textSize="25sp"
+        android:text="HAHAHAHA"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"
+        />
+</LinearLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HistoryApp</string>
+    <string name="params">month&#061;%1$d&#038;day&#061;%2$d</string>
+</resources>
