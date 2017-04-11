@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.graphics.Palette;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -107,7 +106,7 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
                             Log.i("aaa", finalPic_url);
                             XLogE((Exception) e);
                         });
-        scrollView.setTouchEventCallback(touchEventCallback);
+//        scrollView.setTouchEventCallback(touchEventCallback);
         String type=i==-1?"二维码链接":items[i];
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
@@ -136,8 +135,10 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
                         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) currentHeight);
                         imageView.setLayoutParams(layoutParams);
                         rl2.setLayoutParams(layoutParams);
+                        Log.i("aaa","child view has completed");
                         fadeAnimator.setDuration((int)(maxHeight-minHeight));
-                        scrollView.setCanInterceptTouchEvent(true);
+                        scrollView.setHeight(maxHeight,minHeight);
+                        scrollView.setTargetView(imageView,rl2);
                     });
                 }
                 @Override
@@ -157,46 +158,6 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
         else
             return strs[0]+"//"+strs[2]+"/";
     }
-    private MyScrollView.TouchEventCallback touchEventCallback=new MyScrollView.TouchEventCallback() {
-        @Override
-        public void doing(float diff,float diffOffset) {
-            if(currentHeight==minHeight)
-                imageView.setVisibility(View.GONE);
-            else
-                imageView.setVisibility(View.VISIBLE);
-            if(diff>0) {
-                if(mWebView.getScrollY()<=0) {
-                    mWebView.setScrollY(0);
-                    calculateBarHeight((int)diffOffset);
-                    if(currentHeight==minHeight)changeState=true;
-                }
-                else{
-                    mWebView.scrollBy(0,-(int)diffOffset);
-                }
-            } else{
-                if(currentHeight==minHeight){
-                    mWebView.scrollBy(0,-(int)diffOffset);
-                }else {
-                    calculateBarHeight((int)diffOffset);
-                    if(currentHeight==maxHeight)changeState=true;
-                }
-            }
-            if(changeState){
-                mWebView.scrollBy(0,-(int)diffOffset);
-                changeState=false;
-            }
-//                Log.i("aaa","diff:"+diff+"  offset"+diffOffset+"  currentHeight:"+currentHeight+"  maxHeight:"+maxHeight);
-            RelativeLayout.LayoutParams layoutParams= new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,(int)currentHeight);
-            imageView.setLayoutParams(layoutParams);
-            rl2.setLayoutParams(layoutParams);
-            fadeAnimator.setCurrentPlayTime((int)(currentHeight-minHeight));
-            imageView.setAlpha((float)fadeAnimator.getAnimatedValue());
-        }
-    };
-    private void calculateBarHeight(int diffOffset){
-        currentHeight = currentHeight + diffOffset;
-        currentHeight = currentHeight > maxHeight ? maxHeight : currentHeight;
-        currentHeight = currentHeight < minHeight ? minHeight : currentHeight;
 
-    }
+
 }
