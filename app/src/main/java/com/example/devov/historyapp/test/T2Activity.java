@@ -17,10 +17,14 @@ import com.example.devov.historyapp.InjectClickEvent.InjectClickEvent;
 import com.example.devov.historyapp.InjectClickEvent.InjectClickEventDisposer;
 import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.utils.CustomErrorAction;
+import com.example.devov.historyapp.utils.RxScreenshotDetector;
+import com.example.devov.historyapp.utils.xUtilsHelper;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 
 /**
@@ -84,6 +88,13 @@ public class T2Activity extends AbstractActivity {
                exc->{
                    Log.i("aaa","error ************");
                } );
+
+        RxScreenshotDetector.start(this)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(path->tv.setText(tv.getText()+"\nScreen shot"+path),
+                        exc-> xUtilsHelper.XLogE((Exception) exc));
+
     }
     private View.OnClickListener listener=new View.OnClickListener(){
         @Override

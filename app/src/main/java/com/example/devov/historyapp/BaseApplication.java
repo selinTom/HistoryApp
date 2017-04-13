@@ -3,7 +3,6 @@ package com.example.devov.historyapp;
 import android.app.Application;
 import android.util.Log;
 
-import com.antfortune.freeline.FreelineCore;
 import com.example.devov.historyapp.utils.common.LocalImageHelper;
 
 import org.xutils.x;
@@ -17,7 +16,6 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        FreelineCore.init(this);
         LocalImageHelper.getInstance().init(this);
         x.Ext.init(this);
         instance=this;
