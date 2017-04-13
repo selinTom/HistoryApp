@@ -7,7 +7,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -82,7 +81,7 @@ public class SplashActivity extends Activity {
             @Override
             public void onClick(int position) {
                 MainActivity.LauncherActivity(position,SplashActivity.this);
-                findViewById(R.id.js_btn).setVisibility(View.GONE);
+//                findViewById(R.id.js_btn).setVisibility(View.GONE);
             }
         };
         splashAdapter.setOnClickListener(listener);

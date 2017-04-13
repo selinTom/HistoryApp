@@ -71,7 +71,6 @@ public class MyScrollView extends LinearLayout {
 
 
                 dYM=ev.getY();
-//                if(dYM-dYD)
                 break;
         }
         return super.dispatchTouchEvent(ev);

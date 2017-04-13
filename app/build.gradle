@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
-apply plugin: 'com.antfortune.freeline'
+//apply plugin: 'com.antfortune.freeline'
 android {
     compileSdkVersion 24
     buildToolsVersion '24.0.2'
@@ -14,10 +14,10 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    freeline {
-        hack true
-        productFlavor "h1"
-    }
+//    freeline {
+//        hack true
+//        productFlavor "h1"
+//    }
     productFlavors {
         h1 {
             applicationId 'com.h1.history'
@@ -70,7 +70,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.google.zxing:core:3.2.1'
     compile 'com.journeyapps:zxing-android-embedded:3.3.0'
-    compile 'com.antfortune.freeline:runtime:0.8.5'
+//    compile 'com.antfortune.freeline:runtime:0.8.5'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.yalantis:ucrop:1.5.0'

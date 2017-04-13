@@ -20,7 +20,7 @@ import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.interfaces.Constant;
 import com.example.devov.historyapp.swipeback.SwipeBackActivity;
 import com.example.devov.historyapp.utils.xUtilsHelper;
-import com.example.devov.historyapp.view.MyScrollView;
+import com.example.devov.historyapp.view.MyNestedParentView;
 
 import org.xutils.common.Callback;
 
@@ -52,13 +52,13 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
     @BindView(R.id.iv_detail)
     ImageView imageView;
     @BindView(R.id.scroll_view)
-    MyScrollView scrollView;
+    MyNestedParentView scrollView;
     @BindView(R.id.rl1)
     RelativeLayout rl1;
     @BindView(R.id.rl2)
     RelativeLayout rl2;
-    private float currentHeight;
-    private float maxHeight;
+    private int currentHeight;
+    private int maxHeight;
     private int minHeight;
     private boolean changeState=false;
     private ValueAnimator fadeAnimator;
@@ -138,7 +138,6 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
                         Log.i("aaa","child view has completed");
                         fadeAnimator.setDuration((int)(maxHeight-minHeight));
                         scrollView.setHeight(maxHeight,minHeight);
-                        scrollView.setTargetView(imageView,rl2);
                     });
                 }
                 @Override
