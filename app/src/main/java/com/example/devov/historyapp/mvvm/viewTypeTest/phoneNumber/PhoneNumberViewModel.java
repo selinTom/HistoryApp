@@ -1,9 +1,6 @@
 package com.example.devov.historyapp.mvvm.viewTypeTest.phoneNumber;
 
-import android.util.Log;
-
 import rx.Observable;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 
@@ -24,21 +21,8 @@ public class PhoneNumberViewModel {
        Observable<PhoneNumberInfo> observable=phoneNumberModel.getPhoneNumberInfo(number)
                .subscribeOn(Schedulers.newThread());
                observable.subscribe(
-                       new Action1<PhoneNumberInfo>() {
-                           @Override
-                           public void call(PhoneNumberInfo phoneNumberInfo) {
-                               Log.i("aaa","hashCode: "+observable.hashCode());
-                               phoneNumberObs.onNext(phoneNumberInfo);
-                           }
-                       },
-                       new Action1<Throwable>() {
-                           @Override
-                           public void call(Throwable throwable) {
-                               Log.i("aaa","hashCode: "+observable.hashCode());
-                               Log.i("aaa", "EEEEEEEEEEEEEEEEEEEEEE " + throwable.toString());
-                               excObs.onNext(throwable);
-                           }
-                       }
+                       data-> phoneNumberObs.onNext(data),
+                       exc->  excObs.onNext(exc)
                );
     }
 }

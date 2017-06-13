@@ -38,4 +38,9 @@ public class LineView extends View {
     protected void onDraw(Canvas canvas) {
         canvas.drawLine(0,getHeight()/2,getWidth(),getHeight()/2,paint);
     }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+    }
 }

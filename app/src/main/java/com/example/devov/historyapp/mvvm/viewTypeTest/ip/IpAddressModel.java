@@ -10,8 +10,8 @@ import rx.Observable;
  * Created by devov on 2016/10/25.
  */
 
-public class IpAddressModel implements Constant{
-    public Observable<IpAddressInfo>getIpAddressLocation(String url){
+public class IpAddressModel implements Constant {
+    public Observable<IpAddressInfo> getIpAddressLocation(String url){
         return xUtilsHelper.RetrofitJson(ViewTypeTestApi.class,IP_URL).getIpLocation(url,IP_KEY);
     }
 }

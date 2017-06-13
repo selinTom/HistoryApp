@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements Constant{
     public DataBaseHelper getDataBaseHelper(){return dataBaseHelper;}
 
     private void loadedFragment(int id){
+
         MainMenuFragment mainMenuFragment=null;
         switch (id){
             case 1:

@@ -3,13 +3,6 @@
     xmlns:tools="http://schemas.android.com/apk/res-auto"
     package="com.example.devov.historyapp">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -58,7 +51,19 @@
         <activity android:name=".activity.FlexboxActivity"/>
         <activity android:name=".test.ThirdActivity"/>
         <activity android:name=".test.T4Activity"/>
+        <activity android:name=".test.T5Activity"/>
+        <activity android:name=".kotlin.recycler.KotlinActivity"/>
+        <activity android:name=".test.KotlinTestActivity"/>
+
 
     </application>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 </manifest>
