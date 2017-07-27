@@ -24,6 +24,7 @@ import com.example.devov.historyapp.adapter.HistoryAdapter;
 import com.example.devov.historyapp.interfaces.Constant;
 import com.example.devov.historyapp.utils.MyItemTouchHelperCallback;
 import com.example.devov.historyapp.utils.xUtilsHelper;
+import com.example.devov.historyapp.view.CustomNestedParentView;
 import com.google.gson.Gson;
 
 import org.xutils.common.Callback;
@@ -48,6 +49,9 @@ public class HistoryFragment extends Fragment implements Constant {
     private HistoryData historyData;
     private HistoryAdapter historyAdapter;
     private RecyclerView recyclerView;
+    private StaggeredGridLayoutManager mLayoutManager;
+    private CustomNestedParentView customNestedParentView;
+
 
     @Nullable
     @Override
@@ -59,6 +63,11 @@ public class HistoryFragment extends Fragment implements Constant {
         day = myCalendar.get(Calendar.DAY_OF_MONTH);
         tvMonth = (TextView) view.findViewById(R.id.history_month);
         tvDay = (TextView) view.findViewById(R.id.history_date);
+        customNestedParentView=((CustomNestedParentView) view.findViewById(R.id.main_layout));
+        customNestedParentView.setDisposeTitleViewAction((spreadView,collapseView,rate)->{
+            spreadView.setAlpha(1-rate);
+            collapseView.setAlpha(rate);
+        });
         linearLayout = (LinearLayout) view.findViewById(R.id.choose_date);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +80,9 @@ public class HistoryFragment extends Fragment implements Constant {
         historyAdapter = new HistoryAdapter();
         initData();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        mLayoutManager=new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        mLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
+        recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setHasFixedSize(true);
         historyAdapter.setOnItemClickListener(new HistoryAdapter.OnItemClickListener() {
             @Override

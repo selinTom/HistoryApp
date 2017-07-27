@@ -1,6 +1,5 @@
 package com.example.devov.historyapp;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
@@ -91,9 +90,8 @@ public class MainActivity extends AppCompatActivity implements Constant{
         }
         return true;
     }
-    @TargetApi(21)
     private void init(){
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         Intent intent=getIntent();
         int tag=intent.getIntExtra("TYPE",0)+1;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -113,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements Constant{
         toolbar.setTitle("生活助手");
         toolbar.setNavigationIcon(R.drawable.tag1);
         setSupportActionBar(toolbar);
+        toolbar.setVisibility(View.GONE);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
         //   final ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
         //    mDrawerLayout.setDrawerListener(drawerToggle);

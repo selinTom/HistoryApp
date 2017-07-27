@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,9 @@ import com.example.devov.historyapp.Model.NewsData;
 import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.adapter.NewsAdapter;
 import com.example.devov.historyapp.interfaces.Constant;
+import com.example.devov.historyapp.utils.dao.DaoManager;
+import com.example.devov.historyapp.utils.dao.autoGenerate.News;
+import com.example.devov.historyapp.utils.dao.autoGenerate.NewsDao;
 import com.example.devov.historyapp.utils.xUtilsHelper;
 import com.google.gson.Gson;
 
@@ -37,6 +41,7 @@ public class NewsFragment extends Fragment implements Constant{
     private boolean netTag=true;
     private String param;
     private int titleBarHeight;
+    NewsDao newsDao;
     public static NewsFragment getInstance(String tag,int type){
         NewsFragment newsFragment=new NewsFragment();
         Bundle args=new Bundle();
@@ -49,6 +54,8 @@ public class NewsFragment extends Fragment implements Constant{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
        View view=inflater.inflate(R.layout.news_fragment,container,false);
+//        newsDao= DaoRepo.getInstance().getDaoSession().getNewsDao();
+        newsDao= DaoManager.INSTANCE.getDaoSession().getNewsDao();
        lv=(ListView)view.findViewById(R.id.news_listview);
         newsAdapter=new NewsAdapter(this);
         lv.setAdapter(newsAdapter);
@@ -75,11 +82,13 @@ public class NewsFragment extends Fragment implements Constant{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.i("aaa","onViewCreated    type:"+param);
 
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Log.i("aaa","onActivityCreated    type:"+param);
         initData();
     }
 
@@ -92,7 +101,7 @@ public class NewsFragment extends Fragment implements Constant{
                         public void onSuccess(String result) {
                             //加载成功回调，返回获取到的数据
                             //            Log.i("History", "onSuccess: " + result);
-                            parserData(result);
+                            parserData(result,true);
 
                         }
 
@@ -109,6 +118,7 @@ public class NewsFragment extends Fragment implements Constant{
                         @Override
                         public void onError(Throwable ex, boolean isOnCallback) {
 
+
                         }
                     }
             );
@@ -118,6 +128,9 @@ public class NewsFragment extends Fragment implements Constant{
                 Toast.makeText(getActivity(), "无网络连接！", Toast.LENGTH_SHORT).show();
                 netTag = false;
             }
+            News locationNews=newsDao.queryBuilder().where(NewsDao.Properties.Type.eq(param)).unique();
+            if(locationNews!=null)
+                parserData(locationNews.getDocument(),false);
             handler=new Handler(Looper.getMainLooper());
             handler.postDelayed(new Runnable() {
                 @Override
@@ -129,10 +142,20 @@ public class NewsFragment extends Fragment implements Constant{
         }
     }
 
-    private void parserData(String result) {
-        Gson gson=new Gson();
-        newsData=gson.fromJson(result,NewsData.class);
-        newsAdapter.addData(newsData.getResult().getData());
+    private void parserData(String result,boolean needClearData) {
+        if(result!=null && !result.equals("")) {
+            Gson gson = new Gson();
+            newsData = gson.fromJson(result, NewsData.class);
+            newsAdapter.addData(newsData.getResult().getData());
+            News news = newsDao.queryBuilder().where(NewsDao.Properties.Type.eq(param)).build().unique();
+            if (news != null && needClearData) {
+                newsDao.delete(news);
+                News insertNews = new News();
+                insertNews.setType(param);
+                insertNews.setDocument(result);
+                newsDao.insert(insertNews);
+            }
+        }
    //     Log.i("History",newsData.getData().get(0).getDate()+"aaaaa");
 //        try {
 //            java.lang.reflect.Field field=newsData.getClass().getField("result");
@@ -142,8 +165,6 @@ public class NewsFragment extends Fragment implements Constant{
 //            e.printStackTrace();
 //            Log.i("aaa",e.toString());
 //        }
-
-
     }
     private void getTitleHeight(){
         Rect frame = new Rect();

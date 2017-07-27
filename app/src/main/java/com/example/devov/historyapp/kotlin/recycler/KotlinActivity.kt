@@ -25,16 +25,17 @@ class KotlinActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kotlin);
         recycler_view.layoutManager= LinearLayoutManager(this);
-        recycler_view.adapter= KotlinAdapter{Toast.makeText(this,"AAA",Toast.LENGTH_LONG).show()};
+        recycler_view.adapter= KotlinAdapter(callback);
         getData();
     }
+    var callback={position:Int->Toast.makeText(this,"click item $position ",Toast.LENGTH_LONG).show()}
     fun getData(){
         xUtilsHelper.RetrofitJson(NewsApi.NEWS ::class.java, baseUrl).getNews(key,type)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         {data->
-                            (recycler_view.adapter as KotlinAdapter).data=data;
+                            (recycler_view.adapter as KotlinAdapter).data=null;
                             recycler_view.adapter.notifyDataSetChanged();
                         },{
                     exc->
@@ -43,3 +44,4 @@ class KotlinActivity : AppCompatActivity(){
                 )
     }
 }
+

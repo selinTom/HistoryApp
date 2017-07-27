@@ -1,60 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.devov.historyapp.view.CustomNestedParentView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/main_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<RelativeLayout
-    android:background="@drawable/history"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:scaleType="center"
+    android:layout_height="match_parent"
+    app:TitleCollapse="@+id/tv_title"
+    app:TitleSpread="@+id/rl_title"
+    app:Content="@+id/recycler"
+    android:background="@android:color/holo_orange_light"
     >
-    <LinearLayout
-        android:id="@+id/choose_date"
-        android:layout_width="50dp"
-        android:layout_height="150dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
-        android:orientation="vertical"
-        android:background="@drawable/date_picker"
-        >
-    <TextView
-        android:id="@+id/history_month"
-        android:layout_width="50dp"
-        android:layout_height="0dp"
-        android:textSize="40dp"
-        android:text="11"
-        android:textColor="#ff0000"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_weight="2"
-        android:paddingTop="10dp"
-
-        />
-    <com.example.devov.historyapp.view.LineView
-        android:id="@+id/history_view"
-        android:layout_width="50dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent">
         <TextView
-            android:id="@+id/history_date"
-            android:layout_width="50dp"
-            android:layout_height="0dp"
-            android:textSize="40dp"
-            android:text="11"
-            android:textColor="#ff0000"
+            android:id="@id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#550000"
+            android:text="11 11"
+            android:textSize="30sp"
             android:gravity="center"
-            android:textStyle="bold"
-            android:layout_weight="2"
-            android:paddingBottom="10dp"
+            android:textColor="#ffffff"
+            android:layout_alignBottom="@id/rl_title"
             />
-    </LinearLayout>
+        <RelativeLayout
+            android:id="@id/rl_title"
+            android:background="@drawable/history"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="center"
+            >
+            <LinearLayout
+                android:id="@+id/choose_date"
+                android:layout_width="50dp"
+                android:layout_height="150dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/date_picker"
+                >
+                <TextView
+                    android:id="@+id/history_month"
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"
+                    android:textSize="40dp"
+                    android:text="11"
+                    android:textColor="#ff0000"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    android:paddingTop="10dp"
+                    />
+                <com.example.devov.historyapp.view.LineView
+                    android:id="@+id/history_view"
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:id="@+id/history_date"
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"
+                    android:textSize="40dp"
+                    android:text="11"
+                    android:textColor="#ff0000"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    android:paddingBottom="10dp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
+        android:id="@id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/date_picker"/>
-</LinearLayout>
+</com.example.devov.historyapp.view.CustomNestedParentView>

@@ -10,7 +10,7 @@
         android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="杂货铺"
+        android:label="Demo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
@@ -54,6 +54,7 @@
         <activity android:name=".test.T5Activity"/>
         <activity android:name=".kotlin.recycler.KotlinActivity"/>
         <activity android:name=".test.KotlinTestActivity"/>
+        <activity android:name=".test.T6Activity"/>
 
 
     </application>

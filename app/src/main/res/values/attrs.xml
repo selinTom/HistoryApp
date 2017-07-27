@@ -9,4 +9,14 @@
     </declare-styleable>
 
     <attr name="SwipeBackLayoutStyle" format="reference"/>
+    <declare-styleable name="View">
+        <attr name="TitleSpread" format="integer"/>
+        <attr name="TitleCollapse" format="integer"/>
+        <attr name="Content" format="integer"/>
+        <!--<attr name="TitleBarView" >-->
+            <!--<flag name="title" value="0"/>-->
+            <!--<flag name="spread" value="1"/>-->
+            <!--<flag name="collapse" value="2"/>-->
+        <!--</attr>-->
+    </declare-styleable>
 </resources>

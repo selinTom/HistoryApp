@@ -20,7 +20,7 @@ public class ThirdActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        InjectClickEventDisposer.InjectView(this);
+        InjectClickEventDisposer.injectView(this);
         A a=new B();
         a.a();
         B b=new B();

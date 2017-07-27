@@ -51,7 +51,7 @@ public class T2Activity extends AbstractActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_t2);
         ButterKnife.bind(this);
-        InjectClickEventDisposer.InjectView(this);
+        InjectClickEventDisposer.injectView(this);
         imageView.setOnClickListener(listener);
 //        Document document= Jsoup.parse("http://mini.eastday.com/mobile/170308155932166.html");
         animationSet=new AnimationSet(true);
@@ -62,6 +62,10 @@ public class T2Activity extends AbstractActivity {
             animationSet.addAnimation(scaleAnimation);
             animationSet.addAnimation(alphaAnimation);
         });
+        double count=0.08d;
+        while(count-->0d){
+            Log.i("aaa","-->"+count );
+        }
         RxTextView.textChanges(et).subscribe(str->{
             String emoji=str.toString();
             String emoji0=new String(Character.toChars(0x1f601));

@@ -15,7 +15,7 @@ import static com.example.devov.historyapp.utils.xUtilsHelper.XLogE;
 public class InjectClickEventDisposer {
     private static Object object;
 
-    public static synchronized void InjectView(Object o) {
+    public static synchronized void injectView(Object o) {
         object = o;
         if (!(object instanceof Activity)) {
             throw new RuntimeException("param must be a Activity!");

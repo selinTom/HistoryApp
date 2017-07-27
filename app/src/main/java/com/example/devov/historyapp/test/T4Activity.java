@@ -32,7 +32,7 @@ public class T4Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_t3);
         ButterKnife.bind(this);
-        InjectClickEventDisposer.InjectView(this);
+        InjectClickEventDisposer.injectView(this);
     }
     @InjectClickEvent(R.id.btn1)
     public View.OnClickListener listener1=v->{

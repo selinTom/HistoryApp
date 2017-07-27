@@ -1,9 +1,12 @@
 package com.example.devov.historyapp;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.example.devov.historyapp.utils.common.LocalImageHelper;
+import com.example.devov.historyapp.utils.dao.DaoRepo;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig;
@@ -44,6 +47,12 @@ public class BaseApplication extends Application {
                 .setDownsampleEnabled(true)
                 .build();
         Fresco.initialize(getApplicationContext(),imagePipelineConfig);
+        DaoRepo.init(this);
+    }
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     public static synchronized Application getInstance() {

@@ -10,22 +10,23 @@ import com.example.devov.historyapp.kotlin.NewsPOJO
 /**
  * Created by devov on 2017/5/23.
  */
-class KotlinAdapter( val listener:(View)->Unit) : Adapter<RecyclerView.ViewHolder>() {
+class KotlinAdapter( val listener:(Int)->Unit) : Adapter<RecyclerView.ViewHolder>() {
     var data: NewsPOJO?=null;
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
 //        (holder as ViewHolder).initViewHolder(data?.result!!.data[position].title);
          with(data?.result!!.data.get(position)){
-            (holder as ViewHolder).initViewHolder(title);
+            (holder as ViewHolder).initViewHolder(title,position);
         }
     }
-    override fun getItemCount(): Int = data?.result?.data?.size ?: 0;
+    override fun getItemCount(): Int = data!!.result?.data?.size ?: 0;
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = ViewHolder(TextView(parent.context),listener)
-    class ViewHolder( itemView: View,listener:(View)->Unit) : RecyclerView.ViewHolder(itemView) {
-        init{
-            this.itemView.setOnClickListener(listener)
-        }
-        fun initViewHolder(info :String){
+    class ViewHolder( itemView: View,val listener:(Int)->Unit) : RecyclerView.ViewHolder(itemView) {
+
+        fun initViewHolder(info :String,position:Int){
+
             (itemView as TextView).text=info;
+            this.itemView.setOnClickListener { listener(position) }
+
         }
     }
 }
