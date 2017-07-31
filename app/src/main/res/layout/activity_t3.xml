@@ -12,6 +12,11 @@
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TWO"/>
+        android:text="start thread"/>
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop thread"/>
 
 </com.example.devov.historyapp.view.MyScrollViewGroup>

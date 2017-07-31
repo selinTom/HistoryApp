@@ -7,6 +7,7 @@ import android.support.v4.view.NestedScrollingChild;
 import android.support.v4.view.NestedScrollingParent;
 import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.ScrollerCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -20,12 +21,18 @@ import com.example.devov.historyapp.R;
  */
 
 public class CustomNestedParentView extends LinearLayout implements NestedScrollingParent {
+    enum State{
+        SPREAD,COLLAPSED,INCOMPLETED
+    }
     private NestedScrollingParentHelper mParentHelper;
     private int collapsedHeight,originalHeight;
     private int spreadId,collapseId,contentId;
     private int consumedY;
     private View spreadView,collapseView,parentView,contentView;
     private DisposeTitleView disposeTitleView;
+    private State state;
+    private ScrollerCompat scroller;
+    private boolean startAnimation,enabledFling;
 
     public CustomNestedParentView(Context context) {
         super(context);
@@ -43,25 +50,14 @@ public class CustomNestedParentView extends LinearLayout implements NestedScroll
     public void setDisposeTitleViewAction(DisposeTitleView disposeTitleViewAction){
         this.disposeTitleView=disposeTitleViewAction;
     }
-
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        spreadView = findViewById(spreadId);
-        collapseView = findViewById(collapseId);
-        contentView=findViewById(contentId);
-        collapseView.post(()->collapsedHeight=collapseView.getHeight());
-        spreadView.post(()->originalHeight=spreadView.getHeight());
-        if(spreadView.getParent()==collapseView.getParent()){
-            parentView=(View)spreadView.getParent();
-            parentView.setBackgroundColor(((ColorDrawable)collapseView.getBackground()).getColor());
-        }else{
-            throw new RuntimeException("spreadView and collapsedView must have the same parentView!");
-        }
-    }
-
     private void init(Context ctx, AttributeSet attrs){
         mParentHelper=new NestedScrollingParentHelper(this);
+        scroller= ScrollerCompat.create(getContext());
+        new Thread(()->{
+//            if(startAnimation)
+
+
+        }).start();
         if(attrs!=null){
             TypedArray typedArray= ctx.obtainStyledAttributes(attrs, R.styleable.View);
             try {
@@ -83,6 +79,21 @@ public class CustomNestedParentView extends LinearLayout implements NestedScroll
         }
     }
 
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        spreadView = findViewById(spreadId);
+        collapseView = findViewById(collapseId);
+        contentView=findViewById(contentId);
+        collapseView.post(()->collapsedHeight=collapseView.getHeight());
+        spreadView.post(()->originalHeight=spreadView.getHeight());
+        if(spreadView.getParent()==collapseView.getParent()){
+            parentView=(View)spreadView.getParent();
+            parentView.setBackgroundColor(((ColorDrawable)collapseView.getBackground()).getColor());
+        }else{
+            throw new RuntimeException("spreadView and collapsedView must have the same parentView!");
+        }
+    }
     @Override
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
         return target instanceof NestedScrollingChild && nestedScrollAxes== ViewCompat.SCROLL_AXIS_VERTICAL;
@@ -118,10 +129,18 @@ public class CustomNestedParentView extends LinearLayout implements NestedScroll
         ViewGroup.LayoutParams titleViewParam=parentView.getLayoutParams();
         ViewGroup.LayoutParams contentViewParam=contentView.getLayoutParams();
         titleViewParam.height=parentView.getHeight()-dy;
-        if(titleViewParam.height>originalHeight)
-            titleViewParam.height=originalHeight;
-        if(titleViewParam.height<collapsedHeight)
-            titleViewParam.height=collapsedHeight;
+        if(titleViewParam.height>=originalHeight) {
+            titleViewParam.height = originalHeight;
+            state=State.SPREAD;
+            startAnimation=false;
+        }
+        if(titleViewParam.height<=collapsedHeight) {
+            titleViewParam.height = collapsedHeight;
+            state=State.COLLAPSED;
+            startAnimation=false;
+        }else{
+            state=State.INCOMPLETED;
+        }
         contentViewParam.height=getHeight()-titleViewParam.height;
         float rate=((float)(originalHeight-titleViewParam.height)/(float)(originalHeight-collapsedHeight));
         requestLayout();
@@ -130,19 +149,35 @@ public class CustomNestedParentView extends LinearLayout implements NestedScroll
         else
             disposeTitleView.action(spreadView,collapseView,rate);
     }
+    private int lastDy;
+    private void disposeFlingAction(){
+        if(startAnimation && scroller.computeScrollOffset()) {
+            int dy = scroller.getCurrY();
+            int diff = dy - lastDy;
+            disposeConsumeDistance(diff);
+            lastDy = dy;
+            invalidate();
+        }else{
+            lastDy=0;
+        }
+    }
     @Override
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
-        if(dyConsumed>0)
+        if(dyConsumed>0) {
             disposeConsumeDistance(consumedY);
-        if(dyConsumed==0 && dyUnconsumed<0)
+            enabledFling=true;
+        }else
+            enabledFling=false;
+        if(dyConsumed==0 && dyUnconsumed<0) {
             disposeConsumeDistance(consumedY);
+            enabledFling=true;
+        }else
+            enabledFling=false;
     }
 
     //返回值：是否消费了fling
     @Override
     public boolean onNestedPreFling(View target, float velocityX, float velocityY) {
-        findTargetView(target);
-        Log.i("aaa","VelocityY is:"+velocityY);
 
         return false;
     }
@@ -150,9 +185,18 @@ public class CustomNestedParentView extends LinearLayout implements NestedScroll
     //返回值：是否消费了fling
     @Override
     public boolean onNestedFling(View target, float velocityX, float velocityY, boolean consumed) {
-//        if (!consumed) {
-//            return true;
-//        }
+        if(velocityY>1000 ){//下滑
+            if(state!=State.COLLAPSED) {
+                scroller.fling(0, 0, 0, (int) velocityY, 0, 0, -10000, 10000);
+                startAnimation=true;
+            }
+        }else if(velocityY<-1000){
+            if(state!=State.SPREAD && enabledFling){
+                scroller.fling(0,0,0,(int)velocityY,0,0,-10000,10000);
+                startAnimation=true;
+            }
+        }
+        invalidate();
         return false;
     }
 
@@ -161,29 +205,14 @@ public class CustomNestedParentView extends LinearLayout implements NestedScroll
         return mParentHelper.getNestedScrollAxes();
     }
 
-//    @Override
-//    public void scrollTo(int x, int y) {
-//        if (y < 0) {
-//            y = 0;
-//        }
-//        if (y > originalHeight) {
-//            y = originalHeight;
-//        }
-//
-//        super.scrollTo(x, y);
-//    }
-    private void findTargetView(View targetView){
-        if(targetView==spreadView){
-            Log.i("aaa","target view is spreadView");
-        }else if(targetView==collapseView){
-            Log.i("aaa","target view is collapseView");
-        }else if(targetView==parentView){
-            Log.i("aaa","target view is parentView");
-        }else if(targetView==contentView){
-            Log.i("aaa","target view is contentView");
-        }
 
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        disposeFlingAction();
     }
+
     public interface DisposeTitleView{
         void action(View spreadView,View collapseView,float rate);
     }

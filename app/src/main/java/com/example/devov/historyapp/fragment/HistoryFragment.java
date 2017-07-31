@@ -83,7 +83,7 @@ public class HistoryFragment extends Fragment implements Constant {
         mLayoutManager=new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         mLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.addOnScrollListener(onScrollListener);
         historyAdapter.setOnItemClickListener(new HistoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -99,6 +99,13 @@ public class HistoryFragment extends Fragment implements Constant {
 
         return view;
     }
+    RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+            mLayoutManager.invalidateSpanAssignments();
+        }
+    };
 
     private void initDate() {
         tvMonth.setText(String.valueOf(month));
