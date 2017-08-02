@@ -23,6 +23,8 @@ public class BaseApplication extends Application {
     public static int height;
     @Override
     public void onCreate() {
+
+
         super.onCreate();
         LocalImageHelper.getInstance().init(this);
         x.Ext.init(this);
