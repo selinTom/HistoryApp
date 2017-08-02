@@ -9,7 +9,6 @@ import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ScrollerCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;

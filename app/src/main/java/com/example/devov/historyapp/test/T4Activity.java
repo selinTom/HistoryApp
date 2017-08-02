@@ -39,6 +39,9 @@ public class T4Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_t3);
         ButterKnife.bind(this);
+        Log.i("aaa","main thread:"+Thread.currentThread().getName());
+        TClass.test();
+        Log.i("aaa","aaaaaaa");
         InjectClickEventDisposer.injectView(this);
         scrollerCompat=ScrollerCompat.create(this);
 
