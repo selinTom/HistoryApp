@@ -57,6 +57,7 @@ public class BaseApplication extends Application {
         MultiDex.install(this);
     }
 
+
     public static synchronized Application getInstance() {
         return instance;
     }
