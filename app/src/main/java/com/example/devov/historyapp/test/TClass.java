@@ -40,7 +40,6 @@ public class TClass {
                 }
             });
             executor.submit(futureTask);
-            Log.i("aaa","fibc(10):"+futureTask.get());
 //            executor.shutdown();
         } catch (Exception e) {
             xUtilsHelper.XLogE(e);
