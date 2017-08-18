@@ -157,6 +157,9 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
             return strs[0]+"//"+strs[2]+"/";
     }
 
+
+
+
 }
 
 
