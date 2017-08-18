@@ -135,7 +135,6 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
                         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) currentHeight);
                         imageView.setLayoutParams(layoutParams);
                         rl2.setLayoutParams(layoutParams);
-                        Log.i("aaa","child view has completed");
                         fadeAnimator.setDuration((int)(maxHeight-minHeight));
                         scrollView.setHeight(maxHeight,minHeight);
                     });
@@ -159,4 +158,10 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
     }
 
 
+
+
 }
+
+
+
+
