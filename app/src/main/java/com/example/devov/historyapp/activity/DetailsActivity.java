@@ -160,6 +160,10 @@ public class DetailsActivity extends SwipeBackActivity implements Constant{
 //hshajdjshxkdajkxjlskll
 
 
+
+
+
+
 }
 
 
