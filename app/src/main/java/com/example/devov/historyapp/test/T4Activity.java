@@ -28,7 +28,6 @@ public class T4Activity extends Activity {
     Button btn1;
     @BindView(R.id.btn2)
     Button btn2;
-    String url="http://img.hhz1.cn/App-imageShow/o_nphone/2c1/6341620ku08d00000o2zzol?iv=1";
     ScrollerCompat scrollerCompat;
     boolean tag;
     int count=0;

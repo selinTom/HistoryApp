@@ -14,7 +14,7 @@ import com.example.devov.historyapp.activity.FlexboxActivity;
 import com.example.devov.historyapp.activity.PhotoWallActivity;
 import com.example.devov.historyapp.activity.QrActivity;
 import com.example.devov.historyapp.adapter.SplashAdapter;
-import com.example.devov.historyapp.test.T4Activity;
+import com.example.devov.historyapp.test.T7Activity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -48,7 +48,7 @@ public class SplashActivity extends Activity {
         });
         findViewById(R.id.flexbox).setOnClickListener(v->startActivity(new Intent(SplashActivity.this, FlexboxActivity.class)));
 //        findViewById(R.id.js_btn).setOnClickListener(v->startActivity(new Intent(SplashActivity.this, JSActivity.class)));
-        findViewById(R.id.js_btn).setOnClickListener(v->startActivity(new Intent(SplashActivity.this, T4Activity.class)));
+        findViewById(R.id.js_btn).setOnClickListener(v->startActivity(new Intent(SplashActivity.this, T7Activity.class)));
         splashAdapter=new SplashAdapter(this);
         setListener();
         gridLayoutManager=new GridLayoutManager(this,2);

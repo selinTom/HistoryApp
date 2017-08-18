@@ -5,7 +5,6 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -49,12 +48,7 @@ public class MainActivity extends AppCompatActivity implements Constant{
         init();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState,PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState,persistentState);
-        init();
 
-    }
     public void closeMenu() {
         mDrawerLayout.closeDrawers();
     }
