@@ -77,6 +77,10 @@ public class T4Activity extends Activity {
             }
         }).start();
     };
+
+
+
+
     @InjectClickEvent(R.id.btn3)
     public View.OnClickListener listener3=v->{
 //        ll.startMove(-300);
