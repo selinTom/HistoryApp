@@ -95,6 +95,7 @@ public class T4Activity extends Activity {
         Test t=new Test(0,0);
         Test.num++;
         Test.returnStr();
+        Log.i("aaa","aaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
     }
 
