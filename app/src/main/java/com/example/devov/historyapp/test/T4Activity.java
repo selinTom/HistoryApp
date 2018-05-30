@@ -12,8 +12,6 @@ import com.example.devov.historyapp.InjectClickEvent.InjectClickEventDisposer;
 import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.view.MyScrollViewGroup;
 
-import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -79,22 +77,30 @@ public class T4Activity extends Activity {
             }
         }).start();
     };
-//    @InjectClickEvent(R.id.btn3)
-//    public View.OnClickListener listener3=v->{
-////        ll.startMove(-300);
-//        tag=false;
+    @InjectClickEvent(R.id.btn3)
+    public View.OnClickListener listener3=v->{
+//        ll.startMove(-300);
+        tag=false;
 
-//    };
-    private void test(){
-        ArrayList<String>list1=new ArrayList<>();
-        ArrayList list2=new ArrayList<String>();
-        list2.add("aa");
-        list2.add(1);
-        list1.add("Aa");
-//        list1.add(1);
-        Test t=new Test(0,0);
-        Test.num++;
-        Test.returnStr();
-        Log.i("aaa","aaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    }
+    };
+//    private void test(){
+//        ArrayList<String>list1=new ArrayList<>();
+//        ArrayList list2=new ArrayList<String>();
+//        list2.add("aa");
+//        list2.add(1);
+//        list1.add("Aa");
+////        list1.add(1);
+//        Test t=new Test(0,0);
+//        Test.num++;
+//        Test.returnStr();
+//        Log.i("aaa","aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+//    }
+    /**
+     *
+     *
+     *
+     *
+     *
+     */
 }
