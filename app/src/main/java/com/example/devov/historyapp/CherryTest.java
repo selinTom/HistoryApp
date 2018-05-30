@@ -5,4 +5,5 @@ package com.example.devov.historyapp;
  */
 
 public class CherryTest {
+    public String str="hello";
 }
