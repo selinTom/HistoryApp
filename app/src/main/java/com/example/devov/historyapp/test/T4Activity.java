@@ -79,18 +79,12 @@ public class T4Activity extends Activity {
             }
         }).start();
     };
-    @InjectClickEvent(R.id.btn3)
-    public View.OnClickListener listener3=v->{
-//        ll.startMove(-300);
-        tag=false;
+//    @InjectClickEvent(R.id.btn3)
+//    public View.OnClickListener listener3=v->{
+////        ll.startMove(-300);
+//        tag=false;
 
-    };
-
-
-
-
-
-
+//    };
     private void test(){
         ArrayList<String>list1=new ArrayList<>();
         ArrayList list2=new ArrayList<String>();
@@ -102,6 +96,5 @@ public class T4Activity extends Activity {
         Test.num++;
         Test.returnStr();
         Log.i("aaa","aaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
     }
 }
