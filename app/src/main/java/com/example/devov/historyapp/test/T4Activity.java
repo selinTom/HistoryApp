@@ -43,6 +43,16 @@ public class T4Activity extends Activity {
         Log.i("aaa","aaaaaaa");
         InjectClickEventDisposer.injectView(this);
         scrollerCompat=ScrollerCompat.create(this);
+        int a=5;
+        int b=7;
+        Log.i("aaa","a is "+a);
+        Log.i("aaa","b is "+b);
+        a^=b;
+        b^=a;
+        a^=b;
+        Log.i("aaa","a is "+a);
+        Log.i("aaa","b is "+b);
+
 
     }
     @InjectClickEvent(R.id.btn1)
