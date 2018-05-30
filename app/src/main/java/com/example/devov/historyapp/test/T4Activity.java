@@ -85,6 +85,12 @@ public class T4Activity extends Activity {
         tag=false;
 
     };
+
+
+
+
+
+
     private void test(){
         ArrayList<String>list1=new ArrayList<>();
         ArrayList list2=new ArrayList<String>();
