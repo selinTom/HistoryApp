@@ -34,7 +34,7 @@
         <activity android:name=".activity.PhotoDetailsActivity"/>
         <activity android:name=".activity.JSActivity"/>
         <activity android:name=".MainActivity" />
-        <activity android:name=".test.T7Activity">
+        <activity android:name=".test.child1.T7Activity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
@@ -53,14 +53,14 @@
 
 
         <activity android:name=".test.TestActivity"/>
-        <activity android:name=".test.T2Activity"/>
+        <activity android:name=".test.child1.T2Activity"/>
         <activity android:name=".activity.FlexboxActivity"/>
         <activity android:name=".test.ThirdActivity"/>
-        <activity android:name=".test.T4Activity"/>
-        <activity android:name=".test.T5Activity"/>
+        <activity android:name=".test.child1.T4Activity"/>
+        <activity android:name=".test.child1.T5Activity"/>
         <activity android:name=".kotlin.recycler.KotlinActivity"/>
         <activity android:name=".test.KotlinTestActivity"/>
-        <activity android:name=".test.T6Activity"/>
+        <activity android:name=".test.child1.T6Activity"/>
 
 
     </application>

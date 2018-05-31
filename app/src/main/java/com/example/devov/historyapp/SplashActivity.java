@@ -14,7 +14,7 @@ import com.example.devov.historyapp.activity.FlexboxActivity;
 import com.example.devov.historyapp.activity.PhotoWallActivity;
 import com.example.devov.historyapp.activity.QrActivity;
 import com.example.devov.historyapp.adapter.SplashAdapter;
-import com.example.devov.historyapp.test.T4Activity;
+import com.example.devov.historyapp.test.child1.T4Activity;
 
 import java.util.Timer;
 import java.util.TimerTask;

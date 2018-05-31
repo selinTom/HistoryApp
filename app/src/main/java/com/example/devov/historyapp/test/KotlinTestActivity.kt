@@ -5,8 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-import com.example.devov.historyapp.bean.HistoryData
 import com.example.devov.historyapp.R
+import com.example.devov.historyapp.bean.HistoryData
+import com.example.devov.historyapp.test.child1.TClass
 import com.example.devov.historyapp.test.internalPackage.InternalClass
 import kotlinx.android.synthetic.main.activity_t3.*
 
@@ -109,7 +110,7 @@ class KotlinTestActivity : AppCompatActivity() {
 //        transmitFunc(t)
 //        Log.i("aaa","onCreate: ${t.str}")
 //        Log.i("aaa","Extensions:  ${5.add1()}")
-        var tClass=TClass();
+        var tClass= TClass();
         Log.i("aaa","hashCode:${(tClass.infos[2] as Any).hashCode()}");
     }
     fun defaultParamsFunc(param0:Int=1,param1:String="SS",param2:Int){}
