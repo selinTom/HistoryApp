@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test.child1;
+package com.example.devov.historyapp.test.result;
 
 import android.Manifest;
 import android.annotation.TargetApi;

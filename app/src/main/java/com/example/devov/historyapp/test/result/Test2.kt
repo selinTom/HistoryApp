@@ -1,5 +1,6 @@
-package com.example.devov.historyapp.test
+package com.example.devov.historyapp.test.result
 
+import com.example.devov.historyapp.test.Test
 import java.io.IOException
 
 /**
@@ -34,8 +35,8 @@ class Test2 {
             iiiiiii,_,_->iiiiiii
         }
         Singleton.add2()
-        val singleton=Singleton
-        Test(0,0).random=10
+        val singleton= Singleton
+        Test(0, 0).random=10
         throwException()
     }
 

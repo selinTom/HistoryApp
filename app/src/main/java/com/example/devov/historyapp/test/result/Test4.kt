@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test
+package com.example.devov.historyapp.test.result
 
 /**
  * Created by devov on 2017/8/1.

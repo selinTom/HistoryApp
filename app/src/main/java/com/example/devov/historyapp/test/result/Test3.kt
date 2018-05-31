@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test
+package com.example.devov.historyapp.test.result
 
 import com.example.devov.historyapp.test.TxChild.getInt
 import retrofit2.Retrofit
@@ -32,7 +32,7 @@ open class Tx(var i:Int){
         i++
     }
 }
-object TxChild :Tx(getInt()){
+object TxChild : Tx(getInt()){
     fun init(){}
     fun getInt()=5
 }
