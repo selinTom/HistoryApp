@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test;
+package com.example.devov.historyapp.test.child3;
 
 import android.os.Bundle;
 import android.os.Handler;

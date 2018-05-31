@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test;
+package com.example.devov.historyapp.test.child3;
 
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.devov.historyapp.InjectClickEvent.InjectClickEvent;
 import com.example.devov.historyapp.InjectClickEvent.InjectClickEventDisposer;
 import com.example.devov.historyapp.R;
+import com.example.devov.historyapp.test.AbstractActivity;
 import com.example.devov.historyapp.utils.CustomErrorAction;
 import com.example.devov.historyapp.utils.RxScreenshotDetector;
 import com.example.devov.historyapp.utils.xUtilsHelper;
