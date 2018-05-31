@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.Model;
+package com.example.devov.historyapp.bean;
 
 import java.util.List;
 

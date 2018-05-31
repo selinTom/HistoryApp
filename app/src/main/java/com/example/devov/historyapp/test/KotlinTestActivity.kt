@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-import com.example.devov.historyapp.Model.HistoryData
+import com.example.devov.historyapp.bean.HistoryData
 import com.example.devov.historyapp.R
 import com.example.devov.historyapp.test.internalPackage.InternalClass
 import kotlinx.android.synthetic.main.activity_t3.*

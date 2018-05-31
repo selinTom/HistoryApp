@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.fragment.audioRecord;
+package com.example.devov.historyapp.bean;
 
 /**
  * Created by devov on 2016/12/14.

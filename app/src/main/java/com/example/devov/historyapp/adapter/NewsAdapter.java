@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
-import com.example.devov.historyapp.Model.NewsData;
+import com.example.devov.historyapp.bean.NewsData;
 import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.activity.DetailsActivity;
 

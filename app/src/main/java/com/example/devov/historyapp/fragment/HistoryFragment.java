@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.devov.historyapp.Model.HistoryData;
+import com.example.devov.historyapp.bean.HistoryData;
 import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.adapter.HistoryAdapter;
 import com.example.devov.historyapp.interfaces.Constant;

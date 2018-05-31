@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.devov.historyapp.Model.HistoryData;
+import com.example.devov.historyapp.bean.HistoryData;
 import com.example.devov.historyapp.R;
 
 import static com.example.devov.historyapp.utils.xUtilsHelper.displayImage;

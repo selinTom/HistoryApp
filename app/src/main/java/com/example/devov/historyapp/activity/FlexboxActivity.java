@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.devov.historyapp.Model.NewsData;
+import com.example.devov.historyapp.bean.NewsData;
 import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.interfaces.Constant;
 import com.example.devov.historyapp.utils.xUtilsHelper;

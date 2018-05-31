@@ -1,5 +1,7 @@
 package com.example.devov.historyapp.fragment.audioRecord;
 
+import com.example.devov.historyapp.bean.AnswerInfo;
+import com.example.devov.historyapp.bean.VoiceInfo;
 import com.example.devov.historyapp.interfaces.Constant;
 
 import java.io.File;

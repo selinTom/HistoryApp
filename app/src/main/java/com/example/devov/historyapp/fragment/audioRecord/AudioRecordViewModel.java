@@ -2,6 +2,9 @@ package com.example.devov.historyapp.fragment.audioRecord;
 
 import android.util.Log;
 
+import com.example.devov.historyapp.bean.AnswerInfo;
+import com.example.devov.historyapp.bean.VoiceInfo;
+
 import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 

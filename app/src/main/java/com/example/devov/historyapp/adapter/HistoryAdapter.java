@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
-import com.example.devov.historyapp.Model.HistoryData;
+import com.example.devov.historyapp.bean.HistoryData;
 import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.imageload.ImageLoaderUtil;
 import com.example.devov.historyapp.utils.ItemTouchHelperAdapter;

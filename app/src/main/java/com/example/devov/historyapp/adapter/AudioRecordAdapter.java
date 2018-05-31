@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.fragment.audioRecord;
+package com.example.devov.historyapp.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.devov.historyapp.R;
+import com.example.devov.historyapp.bean.AskAndAnswerInfo;
 
 import java.util.ArrayList;
 import java.util.List;

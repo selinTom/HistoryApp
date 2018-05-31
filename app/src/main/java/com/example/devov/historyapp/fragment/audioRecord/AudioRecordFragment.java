@@ -28,6 +28,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.devov.historyapp.R;
+import com.example.devov.historyapp.adapter.AudioRecordAdapter;
+import com.example.devov.historyapp.bean.AskAndAnswerInfo;
 import com.example.devov.historyapp.utils.AudioRecordUtil;
 import com.example.devov.historyapp.view.RippleView;
 

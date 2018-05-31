@@ -15,7 +15,7 @@ import android.view.Window;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.devov.historyapp.Model.NewsData;
+import com.example.devov.historyapp.bean.NewsData;
 import com.example.devov.historyapp.R;
 import com.example.devov.historyapp.adapter.NewsAdapter;
 import com.example.devov.historyapp.interfaces.Constant;
