@@ -63,6 +63,7 @@ public class AudioRecordAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             super(itemView);
             tv=(TextView)itemView.findViewById(R.id.tv);
         }
+        ///dasfasfadsd
     }
     public  boolean isSlideToBottom(RecyclerView recyclerView) {
         if (recyclerView == null) return false;
@@ -70,5 +71,7 @@ public class AudioRecordAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 >= recyclerView.computeVerticalScrollRange())
             return true;
         return false;
+
+
     }
 }
