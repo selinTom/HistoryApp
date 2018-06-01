@@ -1,6 +1,5 @@
-package com.example.devov.historyapp.test.result
+package com.example.devov.historyapp.test.package1
 
-import com.example.devov.historyapp.test.Test
 import java.io.IOException
 
 /**

@@ -35,7 +35,8 @@
         <activity android:name=".activity.JSActivity"/>
         <activity android:name=".MainActivity" />
 
-        <activity android:name=".test.result.T7Activity">
+        <activity android:name=".test.tPackage.T7Activity">
+
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
@@ -53,15 +54,15 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
 
-        <activity android:name=".test.TestActivity"/>
         <activity android:name=".activity.FlexboxActivity"/>
         <activity android:name=".test.ThirdActivity"/>
-        <activity android:name=".test.result.T4Activity"/>
-        <activity android:name=".test.result.T2Activity"/>
-        <activity android:name=".test.result.T5Activity"/>
+        <activity android:name=".test.tPackage.TestActivity"/>
+        <activity android:name=".test.tPackage.T4Activity"/>
+        <activity android:name=".test.tPackage.T2Activity"/>
+        <activity android:name=".test.tPackage.T5Activity"/>
         <activity android:name=".kotlin.recycler.KotlinActivity"/>
-        <activity android:name=".test.KotlinTestActivity"/>
-        <activity android:name=".test.result.T6Activity"/>
+        <activity android:name=".test.package1.KotlinTestActivity"/>
+        <activity android:name=".test.tPackage.T6Activity"/>
 
 
     </application>

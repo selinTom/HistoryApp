@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test
+package com.example.devov.historyapp.test.package1
 
 import android.util.Log
 
@@ -19,13 +19,13 @@ class Test1 {
         t.fun2();
         this.t;
         Test.fun4()
-        Test(0,0).fun4()
+        Test(0, 0).fun4()
         for(a in 0..100 step 2) {}
         }
-    var t=Test(0,0).fun3()
+    var t= Test(0, 0).fun3()
     fun Test.Companion.fun4(){
         Log.i("aaa","Test.fun4");
-        this.a='p';
+        a ='p';
 //        Test1().fun3("AA"){
 //            var s=it+1;
 //            s.toString();
@@ -68,7 +68,7 @@ fun Test.fun4(){
 fun Test.Companion.fun4(){
     var xx=10;
     Log.i("aaa","Test.fun4");
-    this.a='p';
+    a ='p';
 //    Test1().fun3("AA"){
 //        xx->(xx+1).toString()
 //    }

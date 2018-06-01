@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test.result;
+package com.example.devov.historyapp.test.tPackage;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.devov.historyapp.R;
-import com.example.devov.historyapp.test.Test1;
+import com.example.devov.historyapp.test.package1.Test1;
 
 import java.util.ArrayList;
 import java.util.List;

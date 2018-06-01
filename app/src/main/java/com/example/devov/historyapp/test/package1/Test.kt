@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test
+package com.example.devov.historyapp.test.package1
 
 import android.util.Log
 import com.example.devov.historyapp.kotlin.NewsPOJO
@@ -8,7 +8,7 @@ import kotlin.properties.Delegates
 /**
  * Created by devov on 2017/6/2.
  */
-open class Test(  i1:Int,var i2:Int) :SuperTest(),AA,BB{
+open class Test(  i1:Int,var i2:Int) : SuperTest(), AA, BB {
     companion object{
         @JvmField
         public var num=5
@@ -83,8 +83,8 @@ open class Test(  i1:Int,var i2:Int) :SuperTest(),AA,BB{
         d,old,new->
         new >='G'
     }
-    fun fun5(  i:Test1){
-       Test1()
+    fun fun5(  i: Test1){
+        Test1()
         for (a in 0..100 step 5){}
 //        var r=i+1
         str=inner?.inner2?.inner4.toString()
@@ -105,23 +105,23 @@ interface  AA{
 interface BB{
     fun fun2(): String{
         var a=10;
-        var aa=object :AA{
+        var aa=object : AA {
             override var str: String="AAa"
         }
-        return (a+aa.fun1()).toString()+Test(0,0).internalField
+        return (a+aa.fun1()).toString()+ Test(0, 0).internalField
     }
 }
 open class SuperTest{
     private var privateField="private_field"
     internal var internalField="internal_field"
-    protected var inner:InnerClass?=null
+    protected var inner: InnerClass?=null
      fun SuperTest(){}
       class InnerClass{
-        var inner2:Inner2Class? = null
-        var inner3:Inner3Class?=null
+        var inner2: Inner2Class? = null
+        var inner3: Inner3Class?=null
     }
     class Inner2Class{
-        var inner4:inner4Class?=null
+        var inner4: inner4Class?=null
         fun f(){
         }
     }
@@ -130,4 +130,4 @@ open class SuperTest{
 }
 class Condition<T>(val isTrue:Boolean,val value:T)
 infix fun<T> Condition<T>.or(otherValue:T)=if(isTrue)value else otherValue
-infix fun<T> Boolean.isTrue(value:T)=Condition(this,value)
+infix fun<T> Boolean.isTrue(value:T)= Condition(this, value)

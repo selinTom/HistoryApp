@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test
+package com.example.devov.historyapp.test.package1
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,7 +8,7 @@ import android.widget.TextView
 import com.example.devov.historyapp.R
 import com.example.devov.historyapp.bean.HistoryData
 import com.example.devov.historyapp.test.internalPackage.InternalClass
-import com.example.devov.historyapp.test.result.TClass
+import com.example.devov.historyapp.test.tPackage.TClass
 import kotlinx.android.synthetic.main.activity_t3.*
 
 /**
@@ -28,7 +28,7 @@ class KotlinTestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_t3);
-        val test=Test(0,0)
+        val test= Test(0, 0)
         test.random=5
         Log.i("aaa","Test.random is ${test.random}")
 //        Log.i("aaa","*****************");
@@ -67,7 +67,7 @@ class KotlinTestActivity : AppCompatActivity() {
 //            t2.i1 in 1..3->Log.i("aaa","when 2")
 //            t2.i2 in 5..20->Log.i("aaa","when 3")
 //        }
-        Test.num=10;
+        Test.num =10;
 //        t.random=5;
         Log.i("aaa","Test.returnStr():  ${Test.returnStr()}");
         var u:String="aaaa";
@@ -118,14 +118,14 @@ class KotlinTestActivity : AppCompatActivity() {
         t.str="World"
         Log.i("aaa","transmitFunc: ${t.str}")
     }
-    var t=Test("a","a","a",1)
+    var t= Test("a", "a", "a", 1)
         var u:String="SS".apply {
 //            var a=it.fun2();
             Log.i("aaa","let method");
             ""
         }
     var function={i:Int,k:Char->i+1}
-    fun fun1(t:Test):String{
+    fun fun1(t: Test):String{
 //        val str=with(t){
 //              returnStr();
 //            "Aa"

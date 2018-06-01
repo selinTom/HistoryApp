@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test.result
+package com.example.devov.historyapp.test.package1
 
 import com.example.devov.historyapp.test.TxChild.getInt
 import retrofit2.Retrofit

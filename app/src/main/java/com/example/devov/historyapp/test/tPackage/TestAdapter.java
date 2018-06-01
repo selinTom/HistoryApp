@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test;
+package com.example.devov.historyapp.test.tPackage;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +15,7 @@ import com.example.devov.historyapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.devov.historyapp.test.TestAdapter.ItemState.NOT_OVERFLOW;
+import static com.example.devov.historyapp.test.tPackage.TestAdapter.ItemState.NOT_OVERFLOW;
 
 
 /**

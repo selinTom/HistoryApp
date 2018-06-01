@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test;
+package com.example.devov.historyapp.test.tPackage;
 
 import android.app.Activity;
 import android.content.Intent;
