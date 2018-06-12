@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test.package1
+package com.example.devov.historyapp.test.ktPackage
 
 import android.util.Log
 import com.example.devov.historyapp.kotlin.NewsPOJO

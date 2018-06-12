@@ -61,7 +61,7 @@
         <activity android:name=".test.tPackage.T2Activity"/>
         <activity android:name=".test.tPackage.T5Activity"/>
         <activity android:name=".kotlin.recycler.KotlinActivity"/>
-        <activity android:name=".test.package1.KotlinTestActivity"/>
+        <activity android:name=".test.ktPackage.KotlinTestActivity"/>
         <activity android:name=".test.tPackage.T6Activity"/>
 
 
