@@ -43,23 +43,9 @@ class Test1 {
         innerFunc(20)
         Log.i("aaa","all right")
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*
+    da,lkdsldkmasddd;ldsa;dsa
+     */
 }
 fun Test.fun4(){
     Log.i("aaa","Test.fun4");
