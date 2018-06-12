@@ -1,4 +1,4 @@
-package com.example.devov.historyapp.test.package1
+package com.example.devov.historyapp.test.ktPackage
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
